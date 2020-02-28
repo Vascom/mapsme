@@ -34,6 +34,8 @@ done
 
 shift $((OPTIND-1))
 
+time_upload_server_path="vpnmercury:/home/vascom"
+
 if [ $time_enable == "1" ]; then
     time_log_file="/tmp/mapsme_time.log"
 
@@ -243,5 +245,5 @@ else
 fi
 
 if [ $time_enable == "1" ]; then
-    scp $time_log_file vpnmercury:/home/vascom/mapsme_time_$server_n.log
+    scp $time_log_file $time_upload_server_path/mapsme_time_$server_n.log
 fi

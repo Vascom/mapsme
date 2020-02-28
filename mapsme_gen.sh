@@ -29,6 +29,8 @@ done
 
 shift $((OPTIND-1))
 
+upload_server_path="vpnmercury:/var/www/webdav/mapsme/"
+
 if [ $time_enable == "1" ]; then
     time_log_file="/tmp/mapsme_time.log"
 
@@ -133,7 +135,7 @@ if [ $upload -eq 1 ]; then
         popd
         for i in $(seq 1 $max_count);do
             echo "$i $max_count"
-            find $build_dir_name -name "${COUNT[$i]}.mwm" -exec scp {} vpnmercury:/var/www/webdav/mapsme/ \;
+            find $build_dir_name -name "${COUNT[$i]}.mwm" -exec scp {} $upload_server_path \;
         done
         rm -rf $build_dir_name/20*
     else
