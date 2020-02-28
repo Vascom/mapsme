@@ -45,3 +45,6 @@ https://support.maps.me/hc/ru/articles/208458855
 - Туркменистан;
 - Киргизия;
 - Таджикистан.
+
+Скрипты для сборки карт доступны на Github:
+https://github.com/Vascom/mapsme
