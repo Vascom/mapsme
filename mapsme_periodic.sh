@@ -45,9 +45,9 @@ fi
 
 if [ $server_n -eq 0 ]; then
 
-/home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
+    mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
 
-#     /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "poland" \
+#     mapsme_gen.sh $GEN_ARGS "poland" \
 #     "Poland_Greater Poland Voivodeship" \
 #     "Poland_Kuyavian-Pomeranian Voivodeship" \
 #     "Poland_Lesser Poland Voivodeship" \
@@ -67,7 +67,7 @@ if [ $server_n -eq 0 ]; then
 
 echo a
 elif [ $server_n -eq 1 ]; then
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Moscow" \
     "Russia_Moscow Oblast_West" \
     "Russia_Moscow Oblast_East" \
@@ -88,7 +88,7 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Tula Oblast" \
     "Russia_Yaroslavl Oblast"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Bashkortostan" \
     "Russia_Kirov Oblast" \
     "Russia_Mari El" \
@@ -105,7 +105,7 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Ulyanovsk Oblast" \
     "Russia_Chuvashia"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Krasnodar Krai" \
     "Russia_Krasnodar Krai_Adygeya" \
     "Russia_Astrakhan Oblast" \
@@ -113,7 +113,7 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Rostov Oblast" \
     "Russia_Republic of Kalmykia"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Kurgan Oblast" \
     "Russia_Sverdlovsk Oblast_Ekaterinburg" \
     "Russia_Sverdlovsk Oblast_North" \
@@ -123,7 +123,7 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Chelyabinsk Oblast" \
     "Russia_Yamalo-Nenets Autonomous Okrug"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "belarus" \
+    mapsme_gen.sh $GEN_ARGS "belarus" \
     "Belarus_Brest Region" \
     "Belarus_Homiel Region" \
     "Belarus_Hrodna Region" \
@@ -131,7 +131,7 @@ elif [ $server_n -eq 1 ]; then
     "Belarus_Minsk Region" \
     "Belarus_Vitebsk Region"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "ukraine" \
+    mapsme_gen.sh $GEN_ARGS "ukraine" \
     "Ukraine_Cherkasy Oblast" \
     "Ukraine_Chernihiv Oblast" \
     "Ukraine_Chernivtsi Oblast" \
@@ -158,10 +158,10 @@ elif [ $server_n -eq 1 ]; then
     "Ukraine_Zhytomyr Oblast" \
     "Crimea"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "lithuania" "Lithuania_East" "Lithuania_West"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "kazakhstan" "Kazakhstan_North" "Kazakhstan_South"
+    mapsme_gen.sh $GEN_ARGS "lithuania" "Lithuania_East" "Lithuania_West"
+    mapsme_gen.sh $GEN_ARGS "kazakhstan" "Kazakhstan_North" "Kazakhstan_South"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "finland" \
+    mapsme_gen.sh $GEN_ARGS "finland" \
     "Finland_Eastern Finland_North" \
     "Finland_Eastern Finland_South" \
     "Finland_Northern Finland" \
@@ -173,7 +173,7 @@ elif [ $server_n -eq 1 ]; then
 
 
 elif [ $server_n -eq 2 ]; then
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Arkhangelsk Oblast_Central" \
     "Russia_Arkhangelsk Oblast_North" \
     "Russia_Vologda Oblast" \
@@ -188,7 +188,7 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Pskov Oblast" \
     "Russia_Saint Petersburg"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Altai Krai" \
     "Russia_Altai Republic" \
     "Russia_Irkutsk Oblast" \
@@ -201,9 +201,9 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Tuva" \
     "Russia_Khakassia"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" "Russia_Kaliningrad Oblast"
+    mapsme_gen.sh $GEN_ARGS "russia" "Russia_Kaliningrad Oblast"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Amur Oblast" \
     "Russia_Buryatia" \
     "Russia_Jewish Autonomous Oblast" \
@@ -216,7 +216,7 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Khabarovsk Krai" \
     "Russia_Chukotka Autonomous Okrug"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Republic of Dagestan" \
     "Russia_Ingushetia" \
     "Russia_Kabardino-Balkaria" \
@@ -225,17 +225,17 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Stavropol Krai" \
     "Russia_Chechen Republic"
 
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "estonia" "Estonia_East" "Estonia_West"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "latvia" "Latvia"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "georgia" "Georgia" "Abkhazia" "South Ossetia"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "armenia" "Armenia"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "azerbaijan" "Azerbaijan" "Nagorno-Karabakh"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "mongolia" "Mongolia"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "north-korea" "North Korea"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "turkmenistan" "Turkmenistan"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "kyrgyzstan" "Kyrgyzstan"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "tajikistan" "Tajikistan"
-    /home/vascom/.local/bin/mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
+    mapsme_gen.sh $GEN_ARGS "estonia" "Estonia_East" "Estonia_West"
+    mapsme_gen.sh $GEN_ARGS "latvia" "Latvia"
+    mapsme_gen.sh $GEN_ARGS "georgia" "Georgia" "Abkhazia" "South Ossetia"
+    mapsme_gen.sh $GEN_ARGS "armenia" "Armenia"
+    mapsme_gen.sh $GEN_ARGS "azerbaijan" "Azerbaijan" "Nagorno-Karabakh"
+    mapsme_gen.sh $GEN_ARGS "mongolia" "Mongolia"
+    mapsme_gen.sh $GEN_ARGS "north-korea" "North Korea"
+    mapsme_gen.sh $GEN_ARGS "turkmenistan" "Turkmenistan"
+    mapsme_gen.sh $GEN_ARGS "kyrgyzstan" "Kyrgyzstan"
+    mapsme_gen.sh $GEN_ARGS "tajikistan" "Tajikistan"
+    mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
 
 else
     echo "Need to select server"
