@@ -193,6 +193,8 @@ elif [ $server_n -eq 2 ]; then
     mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Altai Krai" \
     "Russia_Altai Republic" \
+    "Russia_Buryatia" \
+    "Russia_Zabaykalsky Krai"
     "Russia_Irkutsk Oblast" \
     "Russia_Kemerov Oblast" \
     "Russia_Krasnoyarsk Krai_North" \
@@ -207,9 +209,7 @@ elif [ $server_n -eq 2 ]; then
 
     mapsme_gen.sh $GEN_ARGS "russia" \
     "Russia_Amur Oblast" \
-    "Russia_Buryatia" \
     "Russia_Jewish Autonomous Oblast" \
-    "Russia_Zabaykalsky Krai" \
     "Russia_Kamchatka Krai" \
     "Russia_Magadan Oblast" \
     "Russia_Primorsky Krai" \
