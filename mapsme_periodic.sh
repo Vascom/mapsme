@@ -194,7 +194,7 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Altai Krai" \
     "Russia_Altai Republic" \
     "Russia_Buryatia" \
-    "Russia_Zabaykalsky Krai"
+    "Russia_Zabaykalsky Krai" \
     "Russia_Irkutsk Oblast" \
     "Russia_Kemerov Oblast" \
     "Russia_Krasnoyarsk Krai_North" \
