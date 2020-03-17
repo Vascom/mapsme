@@ -47,8 +47,6 @@ fi
 
 if [ $server_n -eq 0 ]; then
 
-    mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
-
 #     mapsme_gen.sh $GEN_ARGS "poland" \
 #     "Poland_Greater Poland Voivodeship" \
 #     "Poland_Kuyavian-Pomeranian Voivodeship" \
@@ -69,7 +67,7 @@ if [ $server_n -eq 0 ]; then
 
 echo a
 elif [ $server_n -eq 1 ]; then
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Moscow" \
     "Russia_Moscow Oblast_West" \
     "Russia_Moscow Oblast_East" \
@@ -88,9 +86,10 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Tambov Oblast" \
     "Russia_Tver Oblast" \
     "Russia_Tula Oblast" \
-    "Russia_Yaroslavl Oblast"
+    "Russia_Yaroslavl Oblast" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 1 "russia" \
     "Russia_Bashkortostan" \
     "Russia_Kirov Oblast" \
     "Russia_Mari El" \
@@ -107,15 +106,18 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Ulyanovsk Oblast" \
     "Russia_Chuvashia"
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    wait
+
+    mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Krasnodar Krai" \
     "Russia_Krasnodar Krai_Adygeya" \
     "Russia_Astrakhan Oblast" \
     "Russia_Volgograd Oblast" \
     "Russia_Rostov Oblast" \
-    "Russia_Republic of Kalmykia"
+    "Russia_Republic of Kalmykia" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 1 "russia" \
     "Russia_Kurgan Oblast" \
     "Russia_Sverdlovsk Oblast_Ekaterinburg" \
     "Russia_Sverdlovsk Oblast_North" \
@@ -123,9 +125,10 @@ elif [ $server_n -eq 1 ]; then
     "Russia_Yugra_Khanty" \
     "Russia_Yugra_Surgut" \
     "Russia_Chelyabinsk Oblast" \
-    "Russia_Yamalo-Nenets Autonomous Okrug"
+    "Russia_Yamalo-Nenets Autonomous Okrug" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "belarus" \
+    mapsme_gen.sh $GEN_ARGS -c 2 "belarus" \
     "Belarus_Brest Region" \
     "Belarus_Homiel Region" \
     "Belarus_Hrodna Region" \
@@ -133,7 +136,9 @@ elif [ $server_n -eq 1 ]; then
     "Belarus_Minsk Region" \
     "Belarus_Vitebsk Region"
 
-    mapsme_gen.sh $GEN_ARGS "ukraine" \
+    wait
+
+    mapsme_gen.sh $GEN_ARGS -c 0 "ukraine" \
     "Ukraine_Cherkasy Oblast" \
     "Ukraine_Chernihiv Oblast" \
     "Ukraine_Chernivtsi Oblast" \
@@ -160,10 +165,12 @@ elif [ $server_n -eq 1 ]; then
     "Ukraine_Zhytomyr Oblast" \
     "Crimea"
 
-    mapsme_gen.sh $GEN_ARGS "lithuania" "Lithuania_East" "Lithuania_West"
-    mapsme_gen.sh $GEN_ARGS "kazakhstan" "Kazakhstan_North" "Kazakhstan_South"
+    mapsme_gen.sh $GEN_ARGS -c 0 "lithuania" "Lithuania_East" "Lithuania_West" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 1 "kazakhstan" "Kazakhstan_North" "Kazakhstan_South" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "finland" \
+    mapsme_gen.sh $GEN_ARGS -c 2 "finland" \
     "Finland_Eastern Finland_North" \
     "Finland_Eastern Finland_South" \
     "Finland_Northern Finland" \
@@ -173,9 +180,10 @@ elif [ $server_n -eq 1 ]; then
     "Finland_Western Finland_Jyvaskyla" \
     "Finland_Western Finland_Tampere"
 
+    wait
 
 elif [ $server_n -eq 2 ]; then
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Arkhangelsk Oblast_Central" \
     "Russia_Arkhangelsk Oblast_North" \
     "Russia_Vologda Oblast" \
@@ -188,9 +196,10 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Nenets Autonomous Okrug" \
     "Russia_Novgorod Oblast" \
     "Russia_Pskov Oblast" \
-    "Russia_Saint Petersburg"
+    "Russia_Saint Petersburg" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 1 "russia" \
     "Russia_Altai Krai" \
     "Russia_Altai Republic" \
     "Russia_Buryatia" \
@@ -205,9 +214,9 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Tuva" \
     "Russia_Khakassia"
 
-    mapsme_gen.sh $GEN_ARGS "russia" "Russia_Kaliningrad Oblast"
+    wait
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Amur Oblast" \
     "Russia_Jewish Autonomous Oblast" \
     "Russia_Kamchatka Krai" \
@@ -216,9 +225,10 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Sakha Republic" \
     "Russia_Sakhalin Oblast" \
     "Russia_Khabarovsk Krai" \
-    "Russia_Chukotka Autonomous Okrug"
+    "Russia_Chukotka Autonomous Okrug" &
+    sleep 10
 
-    mapsme_gen.sh $GEN_ARGS "russia" \
+    mapsme_gen.sh $GEN_ARGS -c 1 "russia" \
     "Russia_Republic of Dagestan" \
     "Russia_Ingushetia" \
     "Russia_Kabardino-Balkaria" \
@@ -227,17 +237,33 @@ elif [ $server_n -eq 2 ]; then
     "Russia_Stavropol Krai" \
     "Russia_Chechen Republic"
 
-    mapsme_gen.sh $GEN_ARGS "estonia" "Estonia_East" "Estonia_West"
-    mapsme_gen.sh $GEN_ARGS "latvia" "Latvia"
-    mapsme_gen.sh $GEN_ARGS "georgia" "Georgia" "Abkhazia" "South Ossetia"
-    mapsme_gen.sh $GEN_ARGS "armenia" "Armenia"
-    mapsme_gen.sh $GEN_ARGS "azerbaijan" "Azerbaijan" "Nagorno-Karabakh"
-    mapsme_gen.sh $GEN_ARGS "mongolia" "Mongolia"
-    mapsme_gen.sh $GEN_ARGS "north-korea" "North Korea"
-    mapsme_gen.sh $GEN_ARGS "turkmenistan" "Turkmenistan"
-    mapsme_gen.sh $GEN_ARGS "kyrgyzstan" "Kyrgyzstan"
-    mapsme_gen.sh $GEN_ARGS "tajikistan" "Tajikistan"
-    mapsme_gen.sh $GEN_ARGS "uzbekistan" "Uzbekistan"
+    wait
+
+    mapsme_gen.sh $GEN_ARGS -c 0 "russia" "Russia_Kaliningrad Oblast" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 1 "estonia" "Estonia_East" "Estonia_West" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 2 "latvia" "Latvia" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 3 "georgia" "Georgia" "Abkhazia" "South Ossetia" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 4 "armenia" "Armenia" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 5 "azerbaijan" "Azerbaijan" "Nagorno-Karabakh" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 6 "mongolia" "Mongolia" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 7 "north-korea" "North Korea" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 8 "turkmenistan" "Turkmenistan" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 9 "kyrgyzstan" "Kyrgyzstan" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 10 "tajikistan" "Tajikistan" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 11 "uzbekistan" "Uzbekistan"
+
+    wait
 
 else
     echo "Need to select server"

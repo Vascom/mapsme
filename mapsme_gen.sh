@@ -3,20 +3,25 @@
 # Usage info
 show_help(){
 cat << EOF
-Usage: ${0##*/} [-hut] COUNTRY REGION...
+Usage: ${0##*/} [-hut] -c CONF_NUM COUNTRY REGION...
     -h          display this help and exit
+    -c CONF_NUM select config number.
     -u          upload geneated maps to the server.
     -t          enable working time calculation.
 EOF
 }
 
+conf_num=0
 upload=0
 time_enable=0
 
-while getopts "huts:" opt; do
+while getopts "hutc:" opt; do
     case "$opt" in
     h)  show_help
         exit 0
+        ;;
+    c)  conf_num=$OPTARG
+        echo "Used config $conf_num"
         ;;
     u)  upload=1
         echo "Upload enabled"
@@ -29,7 +34,7 @@ done
 
 shift $((OPTIND-1))
 
-upload_server_path="vpnmercury:/var/www/webdav/mapsme/"
+upload_server_path="vpnmercury:/var/www/webdav/mapsme"
 
 if [ $time_enable == "1" ]; then
     time_log_file="/tmp/mapsme_time.log"
@@ -45,7 +50,8 @@ Red='\e[0;31m'          # Red
 Green='\e[0;32m'        # Green
 Yellow='\e[0;33m'       # Yellow
 
-build_dir_name="/mnt/ramdisk/maps_build"
+build_dir_name="/mnt/ramdisk/maps_build_$conf_num"
+conf_file="$build_dir_name/map_generator.ini"
 
 pl_url_s="https://download.geofabrik.de/"
 main_region="russia"
@@ -112,34 +118,35 @@ for i in $(seq 2 $max_count);do
     COUNTRIES=$(echo $COUNTRIES,${COUNT[$i]})
 done
 
-# Change config to build requested maps
-pushd ~/mapsme/omim/tools/python
-pushd maps_generator/var/etc/
-    sed -e "s|.*PLANET_URL.*|PLANET_URL: ${pl_url_s}${main_region}/${sub_region}|" \
-        -e "s|.*PLANET_MD5_URL.*|PLANET_MD5_URL: ${pl_url_s}${main_region}/${sub_region}.md5|" -i map_generator.ini
-popd
-
 # Create build directory on ramdisk
 if [ ! -e $build_dir_name ]; then
     mkdir $build_dir_name
+else
+    rm -rf $build_dir_name/*
 fi
 
+# Change config to build requested maps
+pushd ~/mapsme/omim/tools/python
+    cp maps_generator/var/etc/map_generator.ini $conf_file
+    sed -e "s|.*PLANET_URL.*|PLANET_URL: ${pl_url_s}${main_region}/${sub_region}|" \
+        -e "s|.*PLANET_MD5_URL.*|PLANET_MD5_URL: ${pl_url_s}${main_region}/${sub_region}.md5|" \
+        -e "s|/mnt/ramdisk/maps_build.*|$build_dir_name|" \
+        -i $conf_file
+
 # Run maps build
-# python3 -m maps_generator --countries="$COUNTRIES"
-python3 -m maps_generator --countries="$COUNTRIES" --skip="coastline"
-# python3 -m maps_generator --countries="$COUNTRIES" --skip="coastline,routing_transit"
+    python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="coastline"
+#     python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="coastline,routing_transit"
+popd
 
 # Upload maps to server
 if [ $upload -eq 1 ]; then
     if [ $? -eq 0 ]; then
-        popd
         for i in $(seq 1 $max_count);do
             echo "$i $max_count"
             find $build_dir_name -name "${COUNT[$i]}.mwm" -exec scp {} $upload_server_path \;
         done
-        rm -rf $build_dir_name/20*
+        rm -rf $build_dir_name
     else
-        popd
         for i in $(seq 1 $max_count);do
             find $build_dir_name -name "${COUNT[$i]}.mwm" -delete
         done
