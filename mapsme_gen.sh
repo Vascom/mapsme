@@ -131,6 +131,7 @@ pushd ~/mapsme/omim/tools/python
     sed -e "s|.*PLANET_URL.*|PLANET_URL: ${pl_url_s}${main_region}/${sub_region}|" \
         -e "s|.*PLANET_MD5_URL.*|PLANET_MD5_URL: ${pl_url_s}${main_region}/${sub_region}.md5|" \
         -e "s|/mnt/ramdisk/maps_build.*|$build_dir_name|" \
+        -e "s|OSM_TOOLS_PATH: ~/osmctools|OSM_TOOLS_PATH: $build_dir_name/osmctools|" \
         -i $conf_file
 
 # Run maps build
