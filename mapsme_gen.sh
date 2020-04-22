@@ -69,8 +69,7 @@ case "$1" in
     "latvia"        )   main_region="europe" ;;
     "lithuania"     )   main_region="europe" ;;
     "finland"       )   main_region="europe" ;;
-    "poland"        )   main_region="europe/poland"
-                        with_regions=1 ;;
+    "poland"        )   main_region="europe" ;;
     "armenia"       )   main_region="asia" ;;
     "azerbaijan"    )   main_region="asia" ;;
     "kazakhstan"    )   main_region="asia" ;;
@@ -99,7 +98,22 @@ if [ $with_regions -eq 1 ]; then
         "Russia_Kurgan Oblast"              ) sub_region="ural-fed-district-latest.osm.pbf" ;;
         "Russia_Altai Krai"                 ) sub_region="siberian-fed-district-latest.osm.pbf" ;;
         "Russia_Amur Oblast"                ) sub_region="far-eastern-fed-district-latest.osm.pbf" ;;
-        "Poland_Podlaskie Voivodeship"      ) sub_region="podlaskie-latest.osm.pbf" ;;
+#         "Poland_Greater Poland Voivodeship" ) sub_region="https://download.geofabrik.de/europe/poland-latest.osm.pbf" ;;
+#         "Poland_Kuyavian-Pomeranian Voivodeship")sub_region="kujawsko-pomorskie-latest.osm.pbf" ;;
+#         "Poland_Lesser Poland Voivodeship"  ) sub_region="malopolskie-latest.osm.pbf" ;;
+#         "Poland_Lodz Voivodeship"           ) sub_region="lodzkie-latest.osm.pbf" ;;
+#         "Poland_Lower Silesian Voivodeship" ) sub_region="dolnoslaskie-latest.osm.pbf" ;;
+#         "Poland_Lublin Voivodeship"         ) sub_region="lubelskie-latest.osm.pbf" ;;
+#         "Poland_Lubusz Voivodeship"         ) sub_region="lubuskie-latest.osm.pbf" ;;
+#         "Poland_Masovian Voivodeship"       ) sub_region="mazowieckie-latest.osm.pbf" ;;
+#         "Poland_Opole Voivodeship"          ) sub_region="opolskie-latest.osm.pbf" ;;
+#         "Poland_Podlaskie Voivodeship"      ) sub_region="podlaskie-latest.osm.pbf" ;;
+#         "Poland_Pomeranian Voivodeship"     ) sub_region="pomorskie-latest.osm.pbf" ;;
+#         "Poland_Silesian Voivodeship"       ) sub_region="slaskie-latest.osm.pbf" ;;
+#         "Poland_Subcarpathian Voivodeship"  ) sub_region="podkarpackie-latest.osm.pbf" ;;
+#         "Poland_Swietokrzyskie Voivodeshi"  ) sub_region="swietokrzyskie-latest.osm.pbf" ;;
+#         "Poland_Warmian-Masurian Voivodeship") sub_region="warminsko-mazurskie-latest.osm.pbf" ;;
+#         "Poland_West Pomeranian Voivodeship") sub_region="zachodniopomorskie-latest.osm.pbf" ;;
         *                                   ) echo "Need region"
                                               exit 2 ;;
     esac

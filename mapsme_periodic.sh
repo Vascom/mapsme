@@ -47,23 +47,7 @@ fi
 
 if [ $server_n -eq 0 ]; then
 
-#     mapsme_gen.sh $GEN_ARGS "poland" \
-#     "Poland_Greater Poland Voivodeship" \
-#     "Poland_Kuyavian-Pomeranian Voivodeship" \
-#     "Poland_Lesser Poland Voivodeship" \
-#     "Poland_Lodz Voivodeship" \
-#     "Poland_Lower Silesian Voivodeship" \
-#     "Poland_Lublin Voivodeship" \
-#     "Poland_Lubusz Voivodeship" \
-#     "Poland_Masovian Voivodeship" \
-#     "Poland_Opole Voivodeship" \
-#     "Poland_Podlaskie Voivodeship"
-#     "Poland_Pomeranian Voivodeship" \
-#     "Poland_Silesian Voivodeship" \
-#     "Poland_Subcarpathian Voivodeship" \
-#     "Poland_Swietokrzyskie Voivodeship" \
-#     "Poland_Warmian-Masurian Voivodeship" \
-#     "Poland_West Pomeranian Voivodeship"
+
 
 echo a
 elif [ $server_n -eq 1 ]; then
@@ -165,20 +149,23 @@ elif [ $server_n -eq 1 ]; then
     "Ukraine_Zhytomyr Oblast" \
     "Crimea"
 
-    mapsme_gen.sh $GEN_ARGS -c 0 "lithuania" "Lithuania_East" "Lithuania_West" &
-    sleep 10
-    mapsme_gen.sh $GEN_ARGS -c 1 "kazakhstan" "Kazakhstan_North" "Kazakhstan_South" &
-    sleep 10
-
-    mapsme_gen.sh $GEN_ARGS -c 2 "finland" \
-    "Finland_Eastern Finland_North" \
-    "Finland_Eastern Finland_South" \
-    "Finland_Northern Finland" \
-    "Finland_Southern Finland_Helsinki" \
-    "Finland_Southern Finland_Lappeenranta" \
-    "Finland_Southern Finland_West" \
-    "Finland_Western Finland_Jyvaskyla" \
-    "Finland_Western Finland_Tampere"
+    mapsme_gen.sh $GEN_ARGS -c 0 "poland" \
+    "Poland_Greater Poland Voivodeship" \
+    "Poland_Kuyavian-Pomeranian Voivodeship" \
+    "Poland_Lesser Poland Voivodeship" \
+    "Poland_Lodz Voivodeship" \
+    "Poland_Lower Silesian Voivodeship" \
+    "Poland_Lublin Voivodeship" \
+    "Poland_Lubusz Voivodeship" \
+    "Poland_Masovian Voivodeship" \
+    "Poland_Opole Voivodeship" \
+    "Poland_Podlaskie Voivodeship" \
+    "Poland_Pomeranian Voivodeship" \
+    "Poland_Silesian Voivodeship" \
+    "Poland_Subcarpathian Voivodeship" \
+    "Poland_Swietokrzyskie Voivodeship" \
+    "Poland_Warmian-Masurian Voivodeship" \
+    "Poland_West Pomeranian Voivodeship"
 
     wait
 
@@ -261,9 +248,25 @@ elif [ $server_n -eq 2 ]; then
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 10 "tajikistan" "Tajikistan" &
     sleep 10
-    mapsme_gen.sh $GEN_ARGS -c 11 "uzbekistan" "Uzbekistan"
+    mapsme_gen.sh $GEN_ARGS -c 11 "uzbekistan" "Uzbekistan" &
 
     wait
+
+    mapsme_gen.sh $GEN_ARGS -c 0 "lithuania" "Lithuania_East" "Lithuania_West" &
+    sleep 10
+    mapsme_gen.sh $GEN_ARGS -c 1 "kazakhstan" "Kazakhstan_North" "Kazakhstan_South" &
+
+    wait
+
+    mapsme_gen.sh $GEN_ARGS -c 0 "finland" \
+    "Finland_Eastern Finland_North" \
+    "Finland_Eastern Finland_South" \
+    "Finland_Northern Finland" \
+    "Finland_Southern Finland_Helsinki" \
+    "Finland_Southern Finland_Lappeenranta" \
+    "Finland_Southern Finland_West" \
+    "Finland_Western Finland_Jyvaskyla" \
+    "Finland_Western Finland_Tampere"
 
 else
     echo "Need to select server"
@@ -272,4 +275,8 @@ fi
 
 if [ $time_enable == "1" ]; then
     scp $time_log_file $time_upload_server_path/mapsme_time_$server_n.log
+fi
+
+if [ -e $HOME/osmctools ]; then
+    rm -rf $HOME/osmctools
 fi
