@@ -268,6 +268,23 @@ elif [ $server_n -eq 2 ]; then
     "Finland_Western Finland_Jyvaskyla" \
     "Finland_Western Finland_Tampere"
 
+    mapsme_gen.sh $GEN_ARGS -c 0 "czech-republic" \
+    "Czech_Jihovychod_Jihomoravsky kraj" \
+    "Czech_Jihovychod_Kraj Vysocina" \
+    "Czech_Jihozapad_Jihocesky kraj" \
+    "Czech_Jihozapad_Plzensky kraj" \
+    "Czech_Karlovasky kraj" \
+    "Czech_Moravskoslezsko" \
+    "Czech_Olomoucky kraj" \
+    "Czech_Praha" \
+    "Czech_Severovychod_Kralovehradecky kraj" \
+    "Czech_Severovychod_Liberecky kraj" \
+    "Czech_Severovychod_Pardubicky kraj" \
+    "Czech_Stredni Cechy_East" \
+    "Czech_Stredni Cechy_West" \
+    "Czech_Ustecky kraj" \
+    "Czech_Zlinsky Kraj"
+
 else
     echo "Need to select server"
     exit 1

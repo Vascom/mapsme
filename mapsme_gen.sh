@@ -70,6 +70,7 @@ case "$1" in
     "lithuania"     )   main_region="europe" ;;
     "finland"       )   main_region="europe" ;;
     "poland"        )   main_region="europe" ;;
+    "czech-republic")   main_region="europe" ;;
     "armenia"       )   main_region="asia" ;;
     "azerbaijan"    )   main_region="asia" ;;
     "kazakhstan"    )   main_region="asia" ;;
