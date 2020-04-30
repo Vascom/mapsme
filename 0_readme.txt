@@ -19,9 +19,9 @@ qt5-qtbase-devel, sqlite-devel, zlib-devel.
 В старых версиях git нет параметров -j и --shallow-submodules, так что их можно убрать, если не клонируется.
 
 1.3 Версия сборочного инструментария должна строго совпадать с версией программы, под которую
-собираем карты. Например, если программа версии 9.6.1, то надо перейти в ветку release-96
+собираем карты. Например, если программа версии 10.0.3, то надо перейти в ветку release-100
     cd omim
-    git checkout release-96
+    git checkout release-100
 
 1.4 Собираем необходимые бинарники. В зависимост от мощности CPU процесс может затянуться.
     echo | ./configure.sh
@@ -75,7 +75,7 @@ PLANET_MD5_URL: https://download.geofabrik.de/russia/central-fed-district-latest
 Названия регионов можно посмотреть в ~/mapsme/omim/data/borders. Также их можно
 перечислять через запятую в параметре --countries.
     cd ..
-    python3 -m maps_generator --countries="Russia_Moscow" --skip="coastline"
+    python3 -m maps_generator --countries="Russia_Moscow" --skip="Coastline"
 
 
 Готовый файл можно найти в
