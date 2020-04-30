@@ -150,7 +150,7 @@ pushd ~/mapsme/omim/tools/python
         -i $conf_file
 
 # Run maps build
-    python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="coastline"
+    python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="Coastline"
 #     python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="coastline,routing_transit"
 popd
 
