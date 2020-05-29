@@ -62,6 +62,8 @@ with_regions=0
 case "$1" in
     "russia"        )   main_region="russia"
                         with_regions=1 ;;
+    "russia_full"   )   main_region=""
+                        sub_region="russia-latest.osm.pbf" ;;
     "belarus"       )   main_region="europe" ;;
     "ukraine"       )   main_region="europe" ;;
     "georgia"       )   main_region="europe" ;;
@@ -71,6 +73,12 @@ case "$1" in
     "finland"       )   main_region="europe" ;;
     "poland"        )   main_region="europe" ;;
     "czech-republic")   main_region="europe" ;;
+    "serbia"        )   main_region="europe" ;;
+    "slovakia"      )   main_region="europe" ;;
+    "slovenia"      )   main_region="europe" ;;
+    "hungary"       )   main_region="europe" ;;
+    "romania"       )   main_region="europe" ;;
+    "bosnia-herzegovina") main_region="europe" ;;
     "armenia"       )   main_region="asia" ;;
     "azerbaijan"    )   main_region="asia" ;;
     "kazakhstan"    )   main_region="asia" ;;

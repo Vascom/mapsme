@@ -268,6 +268,7 @@ elif [ $server_n -eq 2 ]; then
     "Finland_Western Finland_Jyvaskyla" \
     "Finland_Western Finland_Tampere"
 
+elif [ $server_n -eq 3 ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 "czech-republic" \
     "Czech_Jihovychod_Jihomoravsky kraj" \
     "Czech_Jihovychod_Kraj Vysocina" \
@@ -285,6 +286,42 @@ elif [ $server_n -eq 2 ]; then
     "Czech_Ustecky kraj" \
     "Czech_Zlinsky Kraj"
 
+   mapsme_gen.sh $GEN_ARGS -c 0 "serbia" "Serbia" &
+   sleep 10
+   mapsme_gen.sh $GEN_ARGS -c 1 "slovakia" \
+   "Slovakia_Region of Banska Bystrica" \
+   "Slovakia_Region of Bratislava" \
+   "Slovakia_Region of Kosice" \
+   "Slovakia_Region of Nitra" \
+   "Slovakia_Region of Presov" \
+   "Slovakia_Region of Trencin" \
+   "Slovakia_Region of Trnava" \
+   "Slovakia_Region of Zilina" &
+   sleep 10
+   mapsme_gen.sh $GEN_ARGS -c 2 "slovenia" "Slovenia_East" "Slovenia_West" &
+
+   wait
+
+   mapsme_gen.sh $GEN_ARGS -c 0 "hungary" \
+   "Hungary_Kozep-Magyarorszag" \
+   "Hungary_Northern Great Plain" \
+   "Hungary_Transdanubia" &
+   sleep 10
+   mapsme_gen.sh $GEN_ARGS -c 1 "romania" \
+   "Romania_Centre" \
+   "Romania_North_East" \
+   "Romania_North_West" \
+   "Romania_South" \
+   "Romania_South_East" \
+   "Romania_South_West" \
+   "Romania_West" &
+   sleep 10
+   mapsme_gen.sh $GEN_ARGS -c 2 "bosnia-herzegovina" \
+   "Bosnia and Herzegovina_Brcko district of Bosnia and Herzegowina" \
+   "Bosnia and Herzegovina_Entity Federation of Bosnia and Herzegovina" \
+   "Bosnia and Herzegovina_Republic of Srpska" &
+
+   wait
 else
     echo "Need to select server"
     exit 1
