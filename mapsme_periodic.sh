@@ -45,12 +45,12 @@ if [ $time_enable == "1" ]; then
     fi
 fi
 
-if [ $server_n -eq 0 ]; then
+if [ $server_n == 0 ]; then
 
 
 
 echo a
-elif [ $server_n -eq 1 ]; then
+elif [ $server_n == 1 ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Moscow" \
     "Russia_Moscow Oblast_West" \
@@ -169,7 +169,7 @@ elif [ $server_n -eq 1 ]; then
 
     wait
 
-elif [ $server_n -eq 2 ]; then
+elif [ $server_n == 2 ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
     "Russia_Arkhangelsk Oblast_Central" \
     "Russia_Arkhangelsk Oblast_North" \
@@ -268,7 +268,7 @@ elif [ $server_n -eq 2 ]; then
     "Finland_Western Finland_Jyvaskyla" \
     "Finland_Western Finland_Tampere"
 
-elif [ $server_n -eq 3 ]; then
+elif [ $server_n == 3 ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 "czech-republic" \
     "Czech_Jihovychod_Jihomoravsky kraj" \
     "Czech_Jihovychod_Kraj Vysocina" \
@@ -322,6 +322,11 @@ elif [ $server_n -eq 3 ]; then
    "Bosnia and Herzegovina_Republic of Srpska" &
 
    wait
+elif [ $server_n == "2d" ]; then
+    mapsme_gen.sh $GEN_ARGS -c 0 -p "russia" \
+    "Russia_Moscow" \
+    "Russia_Moscow Oblast_West"
+
 else
     echo "Need to select server"
     exit 1

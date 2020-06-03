@@ -7,6 +7,7 @@ Usage: ${0##*/} [-hut] -c CONF_NUM COUNTRY REGION...
     -h          display this help and exit
     -c CONF_NUM select config number.
     -u          upload geneated maps to the server.
+    -p SUFFIX   upload path suffix.
     -t          enable working time calculation.
 EOF
 }
@@ -15,7 +16,7 @@ conf_num=0
 upload=0
 time_enable=0
 
-while getopts "hutc:" opt; do
+while getopts "hutpc:" opt; do
     case "$opt" in
     h)  show_help
         exit 0
@@ -26,6 +27,9 @@ while getopts "hutc:" opt; do
     u)  upload=1
         echo "Upload enabled"
         ;;
+    p)  upload_path_suffix=daily
+        echo "Upload suffix $upload_path_suffix"
+        ;;
     t)  time_enable=1
         echo "Time compute enabled"
         ;;
@@ -34,7 +38,7 @@ done
 
 shift $((OPTIND-1))
 
-upload_server_path="vpnmercury:/var/www/webdav/mapsme"
+upload_server_path="vpnmercury:/var/www/webdav/mapsme/$upload_path_suffix"
 
 if [ $time_enable == "1" ]; then
     time_log_file="/tmp/mapsme_time.log"
