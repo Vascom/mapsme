@@ -38,7 +38,12 @@ done
 
 shift $((OPTIND-1))
 
-upload_server_path="vpnmercury:/var/www/webdav/mapsme/$upload_path_suffix"
+upload_server_name_0="vpnmercury"
+upload_server_name_1="db0.openstreetmap.ru"
+upload_path_0="/var/www/webdav/mapsme/$upload_path_suffix"
+upload_path_1="/usr/www/download/mapsme/$upload_path_suffix"
+upload_server_path_0="$upload_server_name_0:$upload_path_0"
+upload_server_path_1="$upload_server_name_1:$upload_path_1"
 
 if [ $time_enable == "1" ]; then
     time_log_file="/tmp/mapsme_time.log"
@@ -83,6 +88,11 @@ case "$1" in
     "hungary"       )   main_region="europe" ;;
     "romania"       )   main_region="europe" ;;
     "bosnia-herzegovina") main_region="europe" ;;
+    "bulgaria"      )   main_region="europe" ;;
+    "moldova"       )   main_region="europe" ;;
+    "austria"       )   main_region="europe" ;;
+    "greece"        )   main_region="europe" ;;
+    "turkey"        )   main_region="europe" ;;
     "armenia"       )   main_region="asia" ;;
     "azerbaijan"    )   main_region="asia" ;;
     "kazakhstan"    )   main_region="asia" ;;
@@ -163,15 +173,17 @@ pushd ~/mapsme/omim/tools/python
 
 # Run maps build
     python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="Coastline"
+    STATUS=$?
 #     python3 -m maps_generator --config $conf_file --countries="$COUNTRIES" --skip="coastline,routing_transit"
 popd
 
 # Upload maps to server
 if [ $upload -eq 1 ]; then
-    if [ $? -eq 0 ]; then
+    if [ $STATUS -eq 0 ]; then
         for i in $(seq 1 $max_count);do
             echo "$i $max_count"
-            find $build_dir_name -name "${COUNT[$i]}.mwm" -exec scp {} $upload_server_path \;
+            find $build_dir_name -name "${COUNT[$i]}.mwm" -exec scp {} $upload_server_path_0 \;
+            ssh $upload_server_name_0 "scp \"$upload_path_0/${COUNT[$i]}.mwm\" $upload_server_path_1" &
         done
         rm -rf $build_dir_name
     else
@@ -182,6 +194,7 @@ if [ $upload -eq 1 ]; then
         exit 3
     fi
 fi
+# rm -rf $build_dir_name
 
 if [ $time_enable == "1" ]; then
     # Compute working time end

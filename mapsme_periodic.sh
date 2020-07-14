@@ -265,7 +265,20 @@ elif [ $server_n == 1 ]; then
 
     sleep 10
 
-    mapsme_gen.sh $GEN_ARGS -c 13 "serbia" "Serbia"
+    mapsme_gen.sh $GEN_ARGS -c 13 "serbia" "Serbia" &
+
+    check_state
+
+    mapsme_gen.sh $GEN_ARGS -c 14 "turkey" \
+    "Turkey_Aegean Region" \
+    "Turkey_Black Sea Region" \
+    "Turkey_Central Anatolia Region_Ankara" \
+    "Turkey_Central Anatolia Region_Kayseri" \
+    "Turkey_Eastern Anatolia Region" \
+    "Turkey_Marmara Region_Bursa" \
+    "Turkey_Marmara Region_Istanbul" \
+    "Turkey_Mediterranean Region" \
+    "Turkey_Southeastern Anatolia Region"
 
 elif [ $server_n == 2 ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 "russia" \
@@ -351,24 +364,61 @@ elif [ $server_n == 2 ]; then
     mapsme_gen.sh $GEN_ARGS -c 8 "estonia" "Estonia_East" "Estonia_West" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 9 "latvia" "Latvia" &
-    sleep 10
+
+    check_state
+
     mapsme_gen.sh $GEN_ARGS -c 10 "georgia" "Georgia" "Abkhazia" "South Ossetia" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 11 "armenia" "Armenia" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 12 "azerbaijan" "Azerbaijan" "Nagorno-Karabakh" &
-    sleep 10
+
+    check_state
+
     mapsme_gen.sh $GEN_ARGS -c 13 "mongolia" "Mongolia" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 14 "north-korea" "North Korea" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 15 "turkmenistan" "Turkmenistan" &
-    sleep 10
+
+    check_state
+
     mapsme_gen.sh $GEN_ARGS -c 16 "kyrgyzstan" "Kyrgyzstan" &
     sleep 10
     mapsme_gen.sh $GEN_ARGS -c 17 "tajikistan" "Tajikistan" &
     sleep 10
-    mapsme_gen.sh $GEN_ARGS -c 18 "uzbekistan" "Uzbekistan"
+    mapsme_gen.sh $GEN_ARGS -c 18 "uzbekistan" "Uzbekistan" &
+
+    check_state
+
+    mapsme_gen.sh $GEN_ARGS -c 19 "bulgaria" "Bulgaria_East" "Bulgaria_West" &
+    mapsme_gen.sh $GEN_ARGS -c 20 "moldova" "Moldova" &
+
+    check_state
+
+    mapsme_gen.sh $GEN_ARGS -c 21 "austria" \
+    "Austria_Burgenland" \
+    "Austria_Carinthia" \
+    "Austria_Lower Austria_West" \
+    "Austria_Lower Austria_Wien" \
+    "Austria_Salzburg" \
+    "Austria_Styria_Graz" \
+    "Austria_Styria_Leoben" \
+    "Austria_Tyrol" \
+    "Austria_Upper Austria_Linz" \
+    "Austria_Upper Austria_Wels" \
+    "Austria_Vorarlberg" &
+
+    check_state
+
+    mapsme_gen.sh $GEN_ARGS -c 22 "greece" \
+    "Greece_Decentralized Administration of Aegean" \
+    "Greece_Decentralized Administration of Attica" \
+    "Greece_Decentralized Administration of Crete" \
+    "Greece_Decentralized Administration of Epirus - Western Macedonia" \
+    "Greece_Decentralized Administration of Macedonia and Thrace" \
+    "Greece_Decentralized Administration of Thessaly - Central Greece" \
+    "Greece_Decentralized Administration of West Greece"
 
 elif [ $server_n == "2d" ]; then
     mapsme_gen.sh $GEN_ARGS -c 0 -p "russia" \
